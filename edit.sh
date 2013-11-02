@@ -20,8 +20,11 @@ fi
 now=`date '+%Y-%m-%d %H:%M'`
 
 if [[ $2 ]]; then
-  content=$2 
-  #] or everything starting from the second argument: ${*:2}
+  content=$2
+  # Note that since '!' is a special character in bash, we can't 
+  # say $ $script some-title "That is cool!", which simply gives:
+  # 
+  #   -bash: !": event not found
 fi
 
 cat  << EOF > $file
